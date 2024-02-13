@@ -1,0 +1,15 @@
+<map id="DinoEditorSetup" name="DinoEditorSetup">
+<area shape="rect" id="Node000001" title=" " alt="" coords="149,271,264,297"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,183,106,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,214,186,268,184,273,88,219"/>
+<area shape="rect" id="Node000003" href="$class_unity_tool_manager.html" title=" " alt="" coords="216,94,343,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="321,127,334,142,347,171,353,197,349,222,334,249,319,263,302,273,265,284,263,279,300,268,316,259,329,246,344,220,347,197,342,173,329,145,317,131"/>
+<area shape="rect" id="Node000006" href="$class_research_mode_controller.html" title=" " alt="" coords="130,183,293,208"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="236,130,221,145,214,164,213,182,208,182,209,163,216,142,232,126"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="117,5,229,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="201,39,266,91,263,95,198,43"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="181,46,211,182,206,183,176,47"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="253,5,319,31"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="287,47,283,94,278,93,281,46"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="211,224,210,232,209,271,204,271,205,232,206,223"/>
+</map>

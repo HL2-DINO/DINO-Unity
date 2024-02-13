@@ -1,0 +1,10 @@
+<map id="ResearchModeController" name="ResearchModeController">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,183,169,208"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="10,5,121,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,46,88,182,83,182,66,47"/>
+<area shape="rect" id="Node000003" href="$class_unity_tool_manager.html" title=" " alt="" coords="103,94,229,120"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="93,39,154,92,150,96,89,43"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,133,100,184,96,181,143,129"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="146,5,212,31"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="177,47,170,94,165,93,172,46"/>
+</map>
