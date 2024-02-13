@@ -1,0 +1,25 @@
+HL2-DINO-Unity
+Copyright 2023 Hisham Iqbal
+
+---
+This Unity app includes the file Grayscale.shader which comnes from
+HoloLensARToolKit (GNU GPL v3.0).
+* Copyright (C) 2020 Long Qian
+---
+This Unity app uses the MixedRealityToolkit as a Unity package, but does not
+include any direct links to source code or binaries
+MixedRealityToolkit (MIT License)
+* Copyright (C) Microsoft Corporation
+---
+This Unity app uses the Newtonsoft.JSON as a Unity package, but does not
+include any direct links to source code or binaries
+JSON.Net (MIT License)
+* Copyright (C) 2007 James Newton-King
+---
+This project uses files from the doxygen-awesome-css project for styling
+doxygen formatted documentation. 
+
+All files copied from the original repository are included in docs/doxygen-awesome
+Doxygen Awesome (MIT License)
+* Copyright (C) 2021 - 2023 jothepro
+
