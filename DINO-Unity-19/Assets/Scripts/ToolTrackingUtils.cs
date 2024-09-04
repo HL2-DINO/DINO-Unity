@@ -97,18 +97,36 @@ namespace ToolTrackingUtils
         /// <summary>
         /// Helper function for creating some sphere GameObjects, located at marker centres of a tool. These are attached properly 
         /// to object transforms so that you can visualise little spheres when wearing the HL2 and looking at a tracked tool through 
-        /// the headset.
+        /// the headset. Function will clear all child GameObjects under the name "tracker".
         /// </summary>
         /// <param name="toolsToAdd">A properly filled list of \p TrackedTool which we will use to instantiate marker objects</param>
         public static void AddMarkerCentreSpheres(List<TrackedTool> toolsToAdd)
         {
             foreach (var tool in toolsToAdd)
             {
-                if (tool.ToolUnityTransform == null) continue;
-                                
+                if (tool.ToolUnityTransform == null)
+                {
+                    Debug.LogWarning(string.Format("Tool {0} appears to be improperly parented?", tool.ToolName));
+                    continue;
+                }
+                if (tool.ToolMarkerTriplets == null || tool.ToolMarkerTriplets.Count == 0)
+                { 
+                    Debug.LogWarning(string.Format("Tool {0} appears to be missing marker triplet information!", tool.ToolName));
+                    continue; 
+                }
+
                 // parent for all of our marker centre spheres
-                GameObject markerParent = new GameObject("tracker");
-                
+                var existingObject = tool.ToolUnityTransform.Find("tracker");
+
+                // if you've already run this script in the editor, then grab the existing GameObject
+                // which has marker_spheres
+                GameObject markerParent = (existingObject == null) ?
+                    new GameObject("tracker") : existingObject.gameObject;
+
+                // delete all the tracker spheres under 'tracker' if they exist
+                for (int i = markerParent.transform.childCount - 1; i > -1; --i)
+                    GameObject.DestroyImmediate(markerParent.transform.GetChild(i).gameObject);
+
                 markerParent.transform.parent = tool.ToolUnityTransform;
                 markerParent.transform.localPosition = Vector3.zero;
                 markerParent.transform.localRotation = Quaternion.identity;

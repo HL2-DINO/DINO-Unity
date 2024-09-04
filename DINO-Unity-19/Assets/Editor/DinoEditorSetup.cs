@@ -3,6 +3,7 @@ using UnityEditor;
 using ToolTrackingUtils;
 using ToolConfigUtilities;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 /** @file           DinoEditorSetup.cs
  *  @brief          An Editor helper script which helps to properly populate the ToolsTrackedByHololens member of a chosen
@@ -65,19 +66,21 @@ public class DinoEditorSetup : EditorWindow
         // set the public List after parsing the JSON
         toolManagerInstance.ToolsTrackedByHololens = JSONUtils.CreateTrackedToolsetFromJSON(ToolConfigJson);
 
-        var toolsList = toolManagerInstance.ToolsTrackedByHololens;
-
-        // delete all the child-objects of TrackedtoolsParentTransform
-        for (int i = TrackedToolsParentTransform.childCount - 1; i > -1; --i)
-        {
-            GameObject.DestroyImmediate(TrackedToolsParentTransform.GetChild(i).gameObject);
-        }
+        List<TrackedTool> toolsList = toolManagerInstance.ToolsTrackedByHololens;
 
         // populate a list of TrackedTools based on information read in from the config file
         for (int i = 0; i < toolsList.Count; i++)
         {
             var tool = toolsList[i];
-            GameObject toolGameObject = new GameObject(tool.ToolName);
+            // does the tool exist?
+            GameObject toolGameObject;
+
+            var existingObject = TrackedToolsParentTransform.Find(tool.ToolName);
+
+            // if you've already run this script in the editor, then grab the existing GameObject
+            toolGameObject = (existingObject == null) ? 
+                new GameObject(tool.ToolName) : existingObject.gameObject;
+
             toolGameObject.transform.parent = TrackedToolsParentTransform;
             toolGameObject.transform.localScale = Vector3.one;
             toolGameObject.transform.localPosition = Vector3.zero;
@@ -85,7 +88,8 @@ public class DinoEditorSetup : EditorWindow
             tool.ToolUnityTransform = toolGameObject.transform;
         }
 
-        // add in the marker centres so we can see them in Unity
+        // add in the marker centres so we can see them in Unity, note this function call will delete
+        // any child objects under the name 'tracker'
         UnitySceneSetup.AddMarkerCentreSpheres(toolsList);
     }
 
